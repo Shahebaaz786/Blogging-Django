@@ -1,0 +1,62 @@
+{% extends 'Basic.html' %}
+{% block title %}
+    <title>Register Page</title>
+{% endblock title %}
+
+{% block body %}
+
+{% for message in messages  %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>Message : </strong>{{message}}
+    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+    </button>
+    </div>
+{% endfor %}
+
+<h2 class="text-center text-danger my-4">Registration Form</h2>
+<div class="container">
+<form action='register' method='POST'>
+{% csrf_token %}
+  <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">First Name</label>
+      <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter First Name">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Last Name</label>
+      <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Last Name">
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <label for="inputAddress">E-mail</label>
+    <input type="email" class="form-control" id="email" placeholder="ex. abc@gmail.com" name="email">
+  </div>
+
+  <div class="form-group">
+    <label for="inputAddress2"> User Name</label>
+    <input type="text" class="form-control" id="username" placeholder="Enter User Name" name="username">
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label for="inputCity">PassWord 1</label>
+      <input type="password" class="form-control" id="password" name="password1" placeholder="Enter PassWord">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputState">PassWord 2</label>
+     <input type="password" class="form-control" id="password" name="password2" placeholder="Confirm PassWord">
+    </div>
+
+  </div>
+ 
+  <center><button type="submit" class="btn btn-warning text-primary my-4">Sign Up</button></center>
+</form>
+</div>
+{% endblock body %}

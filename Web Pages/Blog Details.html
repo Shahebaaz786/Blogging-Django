@@ -1,0 +1,22 @@
+{% extends 'Basic.html' %}
+{% block title %}
+    <title>Blog Edit Page</title>
+{% endblock title %}
+
+{% block body %}
+<div class="container my-3">
+<h1 class='text-center my-3'> Blog Details</h1>
+  <div class="col-md-6 my-3">
+      <div class="row bg-warning no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Post's</strong>
+          <h3 class="mb-0">{{blog.title}}</h3>
+          <div class="mb-1 text-muted">{{blog.date}}</div>
+          <b>Posted By :-> {{blog.user_id.username}}</b>
+
+          <p class="card-text mb-auto">{{blog.dsc}}</p>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock body%}

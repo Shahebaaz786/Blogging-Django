@@ -1,0 +1,39 @@
+{% extends 'Basic.html' %}
+{% block title %}
+    <title>Home Page</title>
+{% endblock title %}
+
+{% block body %}
+
+{% for message in messages  %}
+
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>Message : </strong>{{message}}
+    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+    </button>
+    </div>
+{% endfor %}
+
+{% load static %}
+<img src="{% static 'imgs/blogging.jpg' %}" style="width:100%; height:450px;">
+
+<div class='container my-4'>
+  <div class="row mb-2 my-3">
+  {% for blog in blogs  %}
+    <div class="col-md-6 my-3">
+      <div class="row bg-warning no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Post's</strong>
+          <h3 class="mb-0">{{blog.title}}</h3>
+          <div class="mb-1 text-muted">{{blog.date}}</div>
+          <b>Posted By :-> {{blog.user_id.username}}</b>
+          <p class="card-text mb-auto">{{blog.dsc}}</p>
+          <a href="blog_detail/{{blog.id}}" class="stretched-link btn btn-secondary">Continue reading</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+{% endblock body %}

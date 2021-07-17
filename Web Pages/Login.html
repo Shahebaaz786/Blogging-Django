@@ -1,0 +1,50 @@
+{% extends 'Basic.html' %}
+{% block title %}
+    <title>Login Page</title>
+{% endblock title %}
+{% block head %}
+{% load static %}
+
+<link  rel='stylesheet' href="{% static 'css/bootstrap.css'%} "></link>
+<link  rel='stylesheet' href="{% static 'css/css_script.css'%} "></link>
+{% endblock head %}
+
+{% block body %}
+{% load static %}
+{% for message in messages  %}
+
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>Message : </strong>{{message}}
+    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span>
+    </button>
+    </div>
+{% endfor %}
+<h2 class="text-center text-warning my-4" >Login Form</h2>
+<div class="container">
+<form action='login' method='POST'>
+{% csrf_token %}
+ 
+
+
+  <div class="form-group">
+    <label for="inputAddress2" id='abc'> User Name</label>
+    <input type="text" class="form-control" id="username" placeholder="Enter User Name" name="username">
+  </div>
+
+  <div class="form-row">
+
+    <div class="form-group col-md-12">
+      <label for="inputCity" class='xyz'>PassWord </label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter PassWord">
+    </div>
+
+  </div>
+ 
+  <center><button onClick='Sanober()' type="submit" class="abcd btn btn-info text-dark my-4">Log-In</button></center>
+</form>
+</div>
+<script src='{% static "js/bootstrap.js" %}'></script>
+<script src='{% static "js/js_exml.js" %}'></script>
+
+{% endblock body %}
